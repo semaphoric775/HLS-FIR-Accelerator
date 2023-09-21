@@ -1,0 +1,58 @@
+make: Entering directory `/afs/unity.ncsu.edu/users/e/epmurphy/ECE720/proj2/rocket_sim'
+time ../sc/main.x --isa=rv64gc -l fir.riscv 2> fir.spike.out
+Connections Clock: tlm2axi.clk Period: 1 ns
+FIR UNIT: ENTERED FIR UNIT RUN FUNCTION
+474 ns dma0 WRITE len:0x8 addr:0x10 data:0x0000000000004000
+478 ns dma0 WRITE len:0x8 addr:0x18 data:0x0000000010010010
+481 ns dma0 WRITE len:0x8 addr:0x20 data:0x0000000000000020
+481 ns dma0 transfer READ addr:0x4000
+601 ns dma0 transfer READ Complete
+601 ns dma0 transfer WRITE addr:0x10010010
+601 ns tlm2axi WRITE len:0x20 addr:0x10
+601 ns tlm2axi.master Sent write request: [id:0 addr:0x10 len:3 ]
+601 ns tlm2axi.master Sent write data: addr=0x10 data=[data:0x2FFFFFFFF0000 last:0 wstrb:0x0FF ] beat=0
+602 ns tlm2axi.master Sent write data: addr=0x18 data=[data:0x3200280019000B last:0 wstrb:0x0FF ] beat=1
+603 ns tlm2axi.dut.slave Wrote to local reg: axi_addr=10 reg_addr=2 data=0x2FFFFFFFF0000 wstrb=ff
+604 ns tlm2axi.master Sent write data: addr=0x20 data=[data:0x0B001900280032 last:0 wstrb:0x0FF ] beat=2
+604 ns tlm2axi.dut.slave Wrote to local reg: axi_addr=18 reg_addr=3 data=0x3200280019000B wstrb=ff
+605 ns tlm2axi.master Sent write data: addr=0x28 data=[data:0x0FFFFFFFF0002 last:1 wstrb:0x0FF ] beat=3
+605 ns tlm2axi.dut.slave Wrote to local reg: axi_addr=20 reg_addr=4 data=0x0B001900280032 wstrb=ff
+606 ns tlm2axi.dut.slave Wrote to local reg: axi_addr=28 reg_addr=5 data=0x0FFFFFFFF0002 wstrb=ff
+607 ns tlm2axi.master Received write response
+607 ns tlm2axi transaction complete
+607 ns dma0 transfer WRITE Complete
+610 ns dma0 READ len:0x8 addr:0x0 data:0x0000000000000000
+614 ns tlm2axi WRITE len:0x8 addr:0x8
+615 ns tlm2axi.master Sent write request: [id:0 addr:0x08 len:0 ]
+615 ns tlm2axi.master Sent write data: addr=0x08 data=[data:0x1 last:1 wstrb:0x0FF ] beat=0
+617 ns tlm2axi.dut.slave Wrote to local reg: axi_addr=8 reg_addr=1 data=0x1 wstrb=ff
+618 ns tlm2axi.master Received write response
+618 ns tlm2axi transaction complete
+618 ns tlm2axi regOut[0] = 0x0
+618 ns tlm2axi regOut[1] = 0x1
+618 ns tlm2axi regOut[2] = 0x2FFFFFFFF0000
+618 ns tlm2axi regOut[3] = 0x3200280019000B
+618 ns tlm2axi regOut[4] = 0x0B001900280032
+618 ns tlm2axi regOut[5] = 0x0FFFFFFFF0002
+618 ns tlm2axi regOut[6] = 0x0
+618 ns tlm2axi regOut[7] = 0x0
+618 ns tlm2axi regOut[8] = 0x0
+618 ns tlm2axi regOut[9] = 0x0
+618 ns tlm2axi regOut[10] = 0x0
+618 ns tlm2axi regOut[11] = 0x0
+618 ns tlm2axi regOut[12] = 0x0
+618 ns tlm2axi regOut[13] = 0x0
+620 ns tlm2axi WRITE len:0x8 addr:0x8
+621 ns tlm2axi.master Sent write request: [id:0 addr:0x08 len:0 ]
+621 ns tlm2axi.master Sent write data: addr=0x08 data=[data:0x2 last:1 wstrb:0x0FF ] beat=0
+623 ns tlm2axi.dut.slave Wrote to local reg: axi_addr=8 reg_addr=1 data=0x2 wstrb=ff
+DETECTED START SIGNAL
+SETTING STATUS BIT
+
+Error: (E115) sc_signal<T> cannot have more than one driver: 
+ signal `tlm2axi.signal_2' (sc_signal)
+ first driver `tlm2axi.dut.slave.run'  (sc_thread_process)
+ second driver `tlm2axi.dut.run' (sc_thread_process)
+In file: ../../../../src/sysc/communication/sc_signal.cpp:73
+In process: tlm2axi.dut.run @ 624 ns
+make: Leaving directory `/afs/unity.ncsu.edu/users/e/epmurphy/ECE720/proj2/rocket_sim'

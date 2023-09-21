@@ -1,0 +1,17 @@
+# rename as .synopsys_dc.setup 
+
+# Search Path variables  
+set path1 "/afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NanGate_15nm_OCL_v0.1_2014_06.A/front_end/timing_power_noise/NLDM"
+set path2 "/afs/eos.ncsu.edu/lockers/research/ece/wdavis/tech/nangate/NanGate_15nm_OCL_v0.1_2014_06.A/front_end/timing_power_noise/CCS"
+set search_path "$path1 $path2 $search_path";
+
+set search_path [concat  $search_path [list [format "%s%s"  $synopsys_root "/libraries/syn"]]]
+set search_path [concat  $search_path [list "." [format "%s%s"  $synopsys_root "/dw/sim_ver"]]]
+
+# Library Variables 
+set synthetic_library [list dw_foundation.sldb]
+set target_library NanGate_15nm_OCL_slow_conditional_nldm.db
+set link_library   [concat  $target_library $synthetic_library]
+
+set verilogout_no_tri "true"
+
